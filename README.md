@@ -9,7 +9,7 @@ I recommend the use a list of floats representing the consecutive cashflows as t
 
 The first cashflow is considered as occurring "right now", and thus not discounted. 
 
-### WACC\_calculator(ReturnOnDebt, ReturnOnEquity, DebtMarketValue, EquityMarketValue, CorporateTaxRate)
+### WACC_calculator(return_on_debt, return_on_equity, debt_market_value, equity_market_value, corporate_tax_rate)
 Returns an after-tax WACC.
 
 The rates should be in the 0.\* format.
