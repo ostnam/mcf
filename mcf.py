@@ -10,10 +10,10 @@ def discount_cf(cashflow, discount_rate):
     return npv
 
 
-def WACC_calculator(ReturnOnDebt, ReturnOnEquity, DebtMarketValue, EquityMarketValue, CorporateTaxRate):
+def WACC_calculator(return_on_debt, return_on_equity, debt_market_value, equity_market_value, corporate_tax_rate):
     """Returns an after-tax WACC. Percents must be in the format 0.1 for 10%"""
-    total_capital_value = EquityMarketValue + DebtMarketValue
-    WACC = (ReturnOnDebt * (1 - CorporateTaxRate)*(DebtMarketValue/total_capital_value) + (ReturnOnEquity * (EquityMarketValue/total_capital_value)))
+    total_capital_value = equity_market_value + debt_market_value
+    WACC = (return_on_debt * (1 - corporate_tax_rate)*(debt_market_value/total_capital_value) + (return_on_equity * (equity_market_value/total_capital_value)))
     return WACC 
 
 def equivalent_annual_cashflow(cashflow, discount_rate):
