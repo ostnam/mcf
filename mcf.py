@@ -1,5 +1,5 @@
-class CashFlows:
-    def __init__(self, cashflows):
+class Cashflows:
+    def __init__(self, *cashflows):
         self.cashflows = cashflows
     
     def discount(self, discount_rate):

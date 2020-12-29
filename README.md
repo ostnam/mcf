@@ -1,14 +1,14 @@
 # mCF
 mCF is a library of common financial functions that I wrote in python3 for myself.
 
-## CashFlows class
-You can create a new cashflow instance with mcf.CashFlows().
+## Cashflows class
+You can create a new cashflow instance with mcf.Cashflows().
 
     In[1]: import mcf
-    In[2]: x = [10, 10]
-    In[3]: y = mcf.CashFlows(x)
+    In[2]: x = (10, 10)
+    In[3]: y = mcf.Cashflows(x)
     In[4]: y.cashflows
-    Out[4]: [10, 10]
+    Out[4]: (10, 10)
 
 I recommend using a list of integers or floats as input.
 The first cashflow is considered as occurring "right now", and thus not discounted. 
