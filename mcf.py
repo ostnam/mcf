@@ -1,7 +1,21 @@
 class Cashflows:
     def __init__(self, *cashflows):
         self.cashflows = cashflows
-    
+
+    def __add__(self, other):
+        """Returns a new instance with the value of their cashflows for each period added together""" 
+        length = max(len(self.cashflows), len(other.cashflows))
+        result = []
+        for i in range(length):
+            sum = 0
+            for j in (self, other):
+                try:
+                    sum += j.cashflows[i]
+                except:
+                    pass
+            result.append(sum)
+        return Cashflows(*result)
+
     def discount(self, discount_rate):
         """Calculates the NPV of a list of cashflows, with a single discount rate. It is assumed that the first cashflow occurs immediately and thus isn't discounted. The discount rate must be in the format 0.1 for 10%."""
         npv = 0.0

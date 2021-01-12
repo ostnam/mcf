@@ -8,6 +8,8 @@ class TestCashflows(unittest.TestCase):
     null_multiple_flow = mcf.Cashflows(0, 0)
     mixed_sign_flow = mcf.Cashflows(-10, 10)
     mixed_value_flow = mcf.Cashflows(10, 0, -10)
+    added_test_flow = test_flow + test_flow
+
 
     def test_init(self):
         self.assertEqual(self.test_flow.cashflows, (10, 10),
@@ -21,6 +23,9 @@ class TestCashflows(unittest.TestCase):
         self.assertEqual(self.null_single_flow.cashflows, (0,),
                 "Error initializing single null cash flow")
 
+    def test_add(self):
+        self.assertEqual(self.added_test_flow.cashflows, (20, 20),
+                "Error adding up two positive cashflows")
 
     def test_discount(self):
         self.assertEqual(self.test_flow.discount(0.1), 19.09090909090909,
@@ -57,7 +62,6 @@ class TestCashflows(unittest.TestCase):
                 "Incorrect value discounting mixed value flows with 0% discount rate")
         self.assertEqual(self.mixed_value_flow.discount(-0.1), -2.3456790123456788,
                 "Incorrect value discounting mixed value flows with negative discount rate")
-
 
     def test_eac(self):
         self.assertEqual(self.test_flow.eac(0.1), 20.999999999999993, "Should be 20.999999999999993")
