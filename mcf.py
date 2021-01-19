@@ -26,7 +26,8 @@ class Cashflows:
                 npv += (current_flow / ((discount_rate + 1) ** i))
         except:
             print("\n Something went wrong while discounting the cash flows. Your cashflow format might be incorrect, I recommend using a list of floats.")
-        return npv
+        else:
+            return npv
 
     def eac(self, discount_rate):
         """Returns the EAC of the cashflows at the specified discount rate. Discount rate must be in the format 0.1 for 10%."""
