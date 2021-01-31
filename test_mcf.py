@@ -9,6 +9,7 @@ class TestCashflows(unittest.TestCase):
     mixed_sign_flow = mcf.Cashflows(-10, 10)
     mixed_value_flow = mcf.Cashflows(10, 0, -10)
     added_test_flow = test_flow + test_flow
+    added_test_flow2 = test_flow + mcf.Cashflows(10) 
 
 
     def test_init(self):
@@ -26,6 +27,8 @@ class TestCashflows(unittest.TestCase):
     def test_add(self):
         self.assertEqual(self.added_test_flow.cashflows, (20, 20),
                 "Error adding up two positive cashflows")
+        self.assertEqual(self.added_test_flow2.cashflows, (20, 10),
+                "Error adding up two positive cashflows of differing length")
 
     def test_discount(self):
         self.assertEqual(self.test_flow.discount(0.1), 19.09090909090909,
